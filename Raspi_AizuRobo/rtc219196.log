@@ -1,0 +1,32 @@
+2017-09-15 15:21:48,801 manager INFO 1.1.0
+2017-09-15 15:21:48,801 manager INFO Copyright (C) 2003-2010
+2017-09-15 15:21:48,801 manager INFO   Noriaki Ando
+2017-09-15 15:21:48,801 manager INFO   Intelligent Systems Research Institute, AIST
+2017-09-15 15:21:48,801 manager INFO Manager starting.
+2017-09-15 15:21:48,801 manager INFO Starting local logging.
+2017-09-15 15:21:48,805 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2017-09-15 15:21:50,825 ManagerServant INFO Master manager not found
+2017-09-15 15:21:50,826 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2017-09-15 15:21:50,826 LocalServiceAdmin INFO All the local services are enabled.
+2017-09-15 15:21:50,832 manager INFO Component type conf file: AizuRobo.conf loaded.
+2017-09-15 15:21:50,835 ec_base INFO setRate(1000000.000000) done
+2017-09-15 15:21:50,836 ec_base INFO setRate(1000.000000) done
+2017-09-15 15:21:50,836 rtobject INFO 1 execution context was created.
+2017-09-15 15:21:50,838 rtobject INFO Initial active configuration set is default-set.
+2017-09-15 15:21:53,628 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2017-09-15 15:21:53,628 SdoServiceAdmin ERROR type  already exists.
+2017-09-15 15:21:53,628 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2017-09-15 15:21:53,628 SdoServiceAdmin ERROR type ed4b1ea5-8dfb-4b92-aefb-7c13e7b68785 already exists.
+2017-09-15 15:22:05,384 rtobject ERROR Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\RTObject.py", line 1319, in on_activated
+    ret = self.onActivated(ec_id)
+  File "C:\Users\fumi0\workspace\Raspi_AizuRobo\AizuRobo.py", line 161, in onActivated
+    m_Analog.data[i] = 0;
+NameError: global name 'm_Analog' is not defined
+
+2017-09-15 15:22:57,299 ec_worker ERROR State of the RTC is not ACTIVE_STATE.
+2017-09-15 15:23:53,026 ec_worker ERROR State of the RTC is not ACTIVE_STATE.

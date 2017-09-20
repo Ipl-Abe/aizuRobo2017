@@ -1,0 +1,54 @@
+# AizuRobo CMake config file
+#
+# This file sets the following variables:
+# AizuRobo_FOUND - Always TRUE.
+# AizuRobo_INCLUDE_DIRS - Directories containing the AizuRobo include files.
+# AizuRobo_IDL_DIRS - Directories containing the AizuRobo IDL files.
+# AizuRobo_LIBRARIES - Libraries needed to use AizuRobo.
+# AizuRobo_DEFINITIONS - Compiler flags for AizuRobo.
+# AizuRobo_VERSION - The version of AizuRobo found.
+# AizuRobo_VERSION_MAJOR - The major version of AizuRobo found.
+# AizuRobo_VERSION_MINOR - The minor version of AizuRobo found.
+# AizuRobo_VERSION_REVISION - The revision version of AizuRobo found.
+# AizuRobo_VERSION_CANDIDATE - The candidate version of AizuRobo found.
+
+message(STATUS "Found AizuRobo-@PROJECT_VERSION@")
+set(AizuRobo_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(AizuRobo_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(AizuRobo_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(AizuRobo_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(AizuRobo_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(AizuRobo_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(AizuRobo_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(AizuRobo_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(AizuRobo_VERSION @PROJECT_VERSION@)
+set(AizuRobo_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(AizuRobo_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(AizuRobo_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(AizuRobo_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

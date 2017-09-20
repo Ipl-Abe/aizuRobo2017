@@ -1,0 +1,23 @@
+2017-09-15 16:39:22,007 manager INFO 1.1.0
+2017-09-15 16:39:22,007 manager INFO Copyright (C) 2003-2010
+2017-09-15 16:39:22,007 manager INFO   Noriaki Ando
+2017-09-15 16:39:22,007 manager INFO   Intelligent Systems Research Institute, AIST
+2017-09-15 16:39:22,007 manager INFO Manager starting.
+2017-09-15 16:39:22,007 manager INFO Starting local logging.
+2017-09-15 16:39:22,012 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2017-09-15 16:39:24,029 ManagerServant INFO Master manager not found
+2017-09-15 16:39:24,032 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2017-09-15 16:39:24,033 LocalServiceAdmin INFO All the local services are enabled.
+2017-09-15 16:39:24,040 manager INFO Component type conf file: AizuRobo.conf loaded.
+2017-09-15 16:39:24,045 ec_base INFO setRate(1000000.000000) done
+2017-09-15 16:39:24,045 ec_base INFO setRate(1000.000000) done
+2017-09-15 16:39:24,046 rtobject INFO 1 execution context was created.
+2017-09-15 16:39:24,052 rtobject INFO Initial active configuration set is default-set.
+2017-09-15 16:39:25,823 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2017-09-15 16:39:25,823 SdoServiceAdmin ERROR type  already exists.
+2017-09-15 16:39:25,825 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2017-09-15 16:39:25,825 SdoServiceAdmin ERROR type 091b387b-b4e3-463b-9ebb-52daacabf51a already exists.

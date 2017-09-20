@@ -1,0 +1,27 @@
+2017-09-15 15:34:49,618 manager INFO 1.1.0
+2017-09-15 15:34:49,618 manager INFO Copyright (C) 2003-2010
+2017-09-15 15:34:49,618 manager INFO   Noriaki Ando
+2017-09-15 15:34:49,618 manager INFO   Intelligent Systems Research Institute, AIST
+2017-09-15 15:34:49,618 manager INFO Manager starting.
+2017-09-15 15:34:49,618 manager INFO Starting local logging.
+2017-09-15 15:34:49,622 manager.namingmanager INFO NameServer connection succeeded: corba/localhost
+2017-09-15 15:34:51,627 ManagerServant INFO Master manager not found
+2017-09-15 15:34:51,627 manager WARNING Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\OpenRTM_aist\Manager.py", line 1900, in initManagerServant
+    reffile = file(self._config.getProperty("manager.refstring_path"),'w')
+IOError: [Errno 2] No such file or directory: '/var/log/rtcmanager.ref'
+
+2017-09-15 15:34:51,628 LocalServiceAdmin INFO All the local services are enabled.
+2017-09-15 15:34:51,631 manager INFO Component type conf file: AizuRobo.conf loaded.
+2017-09-15 15:34:51,631 ec_base INFO setRate(1000000.000000) done
+2017-09-15 15:34:51,631 ec_base INFO setRate(1000.000000) done
+2017-09-15 15:34:51,632 rtobject INFO 1 execution context was created.
+2017-09-15 15:34:51,634 rtobject INFO Initial active configuration set is default-set.
+2017-09-15 15:34:57,654 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2017-09-15 15:34:57,654 SdoServiceAdmin ERROR type  already exists.
+2017-09-15 15:34:57,655 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2017-09-15 15:34:57,655 SdoServiceAdmin ERROR type bdccb8df-74a6-41a0-99c3-50cdabf743d4 already exists.
+2017-09-15 16:12:36,433 SdoServiceAdmin WARNING No available SDO service in the factory: 
+2017-09-15 16:12:36,433 SdoServiceAdmin ERROR type  already exists.
+2017-09-15 16:12:36,434 SdoServiceAdmin WARNING No available SDO service in the factory: IDL:OpenRTM/ComponentObserver:1.0
+2017-09-15 16:12:36,434 SdoServiceAdmin ERROR type a4761295-e0d6-424f-8e78-4ba0bd7e6de1 already exists.
