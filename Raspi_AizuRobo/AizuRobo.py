@@ -6,8 +6,6 @@
  @file AizuRobo.py
  @brief ModuleDescription
  @date $Date$
-
-
 """
 import sys
 import time
@@ -232,25 +230,35 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 	def speedDetector(self, y, x):
 
 		#停止
-		if math.fabs(y) <= 0.2 && math.fabs(x) <= 0.2:
+		if math.fabs(y) <= 0.2 and math.fabs(x) <= 0.2:
 			Aval = 0.0
 			Bval = 0.0
+		else :
+			pass
 		#前進
-		if  -0.2 < y && 0.2 < x && x < -0.2:
-			Aval = -y * 20
-			Bval = -y * 20
+		if  -0.2 < y and 0.2 < x and x < -0.2:
+			Aval = -y * 50
+			Bval = -y * 50
+		else:
+			pass
 		#後退
-		if   0.2 < y && 0.2 < x && x < -0.2:
-			Aval = y * 20
-			Bval = y * 20
+		if   0.2 < y and 0.2 < x and x < -0.2:
+			Aval = y * 50
+			Bval = y * 50
+		else:
+			pass
 		#左旋回
-		if  -0.2 < y && y < 0.2 && x < -0.2:
-			Aval = -x * 20
-			Bval =  x * 20
+		if  -0.2 < y and y < 0.2 and x < -0.2:
+			Aval = -x * 50
+			Bval =  x * 50
+		else:
+			pass
 		#右旋回
-		if  -0.2 < y && y < 0.2 && 0.2 < x :
-			Aval =  x * 20
-			Bval = -x * 20
+		if  -0.2 < y and y < 0.2 and 0.2 < x :
+			Aval =  x * 50
+			Bval = -x * 50
+		else:
+			pass
 
 
 
@@ -288,7 +296,7 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 
 
 
-			s_A, self.TOWARD_A  = self.map(Aval , 0, 100, 0, 58)
+			s_A, self.TOWARD_A  = self.map(Aval , 0, 150, 0, 58)
 			sval_A = self.TOWARD_A |((int(s) + 5) << 2)
 
 			if sval_A >= 1 and sval_A <= 255  :
@@ -297,7 +305,7 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 				print "DCmotor1 value limite "+str(sval_A)
 
 
-			s_B, self.TOWARD_B  = self.map(Bval , 0, 100, 0, 58)
+			s_B, self.TOWARD_B  = self.map(Bval , 0, 150, 0, 58)
 			sval_B = self.TOWARD_B |((int(s) + 5) << 2)
 
 			if sval_B >= 1 and sval_B <= 255  :
@@ -412,4 +420,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
