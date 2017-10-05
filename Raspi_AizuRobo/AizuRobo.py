@@ -228,7 +228,9 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 
 	#アナログスティックの値変換関数
 	def speedDetector(self, y, x):
-
+		Aval = 0
+		Bval = 0
+		
 		#停止
 		if math.fabs(y) <= 0.2 and math.fabs(x) <= 0.2:
 			Aval = 0.0
@@ -236,27 +238,27 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 		else :
 			pass
 		#前進
-		if  -0.2 < y and 0.2 < x and x < -0.2:
-			Aval = -y * 50
-			Bval = -y * 50
+		if   y < -0.2 and (-0.2 < x and x < 0.2):
+			Aval = y * 50
+			Bval = y * 50
 		else:
 			pass
 		#後退
-		if   0.2 < y and 0.2 < x and x < -0.2:
+		if   0.2 < y and (-0.2 < x and x < 0.2):
 			Aval = y * 50
 			Bval = y * 50
 		else:
 			pass
 		#左旋回
-		if  -0.2 < y and y < 0.2 and x < -0.2:
+		if  (-0.2 < y and y) < 0.2 and x < -0.2:
 			Aval = -x * 50
 			Bval =  x * 50
 		else:
 			pass
 		#右旋回
-		if  -0.2 < y and y < 0.2 and 0.2 < x :
-			Aval =  x * 50
-			Bval = -x * 50
+		if  (-0.2 < y and y < 0.2) and 0.2 < x :
+			Aval =  -x * 50
+			Bval =  x * 50
 		else:
 			pass
 
@@ -297,7 +299,7 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 
 
 			s_A, self.TOWARD_A  = self.map(Aval , 0, 150, 0, 58)
-			sval_A = self.TOWARD_A |((int(s) + 5) << 2)
+			sval_A = self.TOWARD_A |((int(s_A) + 5) << 2)
 
 			if sval_A >= 1 and sval_A <= 255  :
 				self.bus.write_i2c_block_data(self.LEFTMOTOR_ADDRESS,self.CONTROL,[sval_A])
@@ -306,10 +308,10 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 
 
 			s_B, self.TOWARD_B  = self.map(Bval , 0, 150, 0, 58)
-			sval_B = self.TOWARD_B |((int(s) + 5) << 2)
+			sval_B = self.TOWARD_B |((int(s_B) + 5) << 2)
 
 			if sval_B >= 1 and sval_B <= 255  :
-				self.bus.write_i2c_block_data(self.LEFTMOTOR_ADDRESS,self.CONTROL,[sval_B])
+				self.bus.write_i2c_block_data(self.RIGHTMOTOR_ADDRESS,self.CONTROL,[sval_B])
 			else :
 				print "DCmotor1 value limite "+str(sval_B)
 
@@ -371,7 +373,9 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 		##
 		#
 		# The state update action that is invoked after onExecute() action
-		# no corresponding operation exists in OpenRTm-aist-0.2.0
+		# no corresponding operation exists in OpenRTm-aist-0.
+		
+	
 		#
 		# @param ec_id target ExecutionContext Id
 		#
