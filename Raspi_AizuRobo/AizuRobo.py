@@ -212,15 +212,15 @@ class AizuRobo(OpenRTM_aist.DataFlowComponentBase):
 		value =0
 		toward = 0x00
 
-		if x > 0 : 　　　#正転
+		if x > 0 :#正転
 			toward = 1
 			value = x
 
-		elif x < 0 : 　　#逆転
+		elif x < 0 :#逆転
 			toward = 2
 			value = abs(x)
 
-		else : 　　　　　　　#停止時		
+		else :#停止時		
 			value =0
 			toward = 0
 		
